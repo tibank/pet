@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="tibank2071@gmail.com" id="changelog-0.1.9" >
+        <comment>"create foregin key in table orders"</comment>
+
+        <addForeignKeyConstraint baseColumnNames="status_id"
+                                 baseTableName="orders" constraintName="FK_ORDER_STATUS"
+                                 referencedColumnNames="id" referencedTableName="order_status"
+                                 onDelete="RESTRICT" onUpdate="RESTRICT"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="orders" constraintName="FK_ORDER_USERS"
+                                 referencedColumnNames="id" referencedTableName="users"
+                                 onDelete="RESTRICT" onUpdate="RESTRICT"/>
+    </changeSet>
+</databaseChangeLog>
